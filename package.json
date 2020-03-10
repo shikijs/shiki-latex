@@ -1,0 +1,45 @@
+{
+  "name": "shiki-latex",
+  "version": "1.0.0",
+  "description": "A Shiki renderer for LaTeX. Compatible with minted, replacing Pygments.",
+  "files": [
+    "lib/**"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "bin": {
+    "shiki-minted": "lib/shiki-minted.js"
+  },
+  "scripts": {
+    "test": "tsc && jest && prettier --check 'src/**'"
+  },
+  "dependencies": {
+    "shiki": "^0.1.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.0",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "typescript": "^3.8.3"
+  },
+  "jest": {
+    "rootDir": "lib",
+    "testEnvironment": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leafac/shiki-latex.git"
+  },
+  "keywords": [
+    "shiki",
+    "latex",
+    "syntax-highlighter"
+  ],
+  "author": "Leandro Facchinetti <shiki-latex@leafac.com> (https://www.leafac.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leafac/shiki-latex/issues"
+  },
+  "homepage": "https://github.com/leafac/shiki-latex#readme"
+}
