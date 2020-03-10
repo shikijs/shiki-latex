@@ -7,6 +7,7 @@ import { TTheme, IShikiTheme } from "shiki-themes";
 import { renderToLaTeX } from "./index";
 
 (async function() {
+  const themePath = "shiki-theme.pyg";
   // fs.appendFileSync("debug.json", JSON.stringify(process.argv, null, 2));
   switch (process.argv[2]) {
     case "-S": {
@@ -20,7 +21,7 @@ import { renderToLaTeX } from "./index";
         _P,
         _commandprefix
       ] = process.argv;
-      fs.writeFileSync("shiki-theme.pyg", theme);
+      fs.writeFileSync(themePath, theme);
       break;
     }
     case "-l": {
@@ -39,15 +40,15 @@ import { renderToLaTeX } from "./index";
         outputPath,
         inputPath
       ] = process.argv;
-      const storedTheme = fs.existsSync("shiki-theme.pyg")
-        ? fs.readFileSync("shiki-theme.pyg", "utf-8")
+      const storedTheme = fs.existsSync(themePath)
+        ? fs.readFileSync(themePath, "utf-8")
         : "default";
       const theme =
         storedTheme === "default"
           ? "light_plus"
           : (storedTheme as TTheme | IShikiTheme);
       const highlighter = await getHighlighter({ theme });
-      const input = fs.readFileSync(inputPath, "utf-8");
+      const input = fs.readFileSync(inputPath, "utf-8").trimRight();
       const lines = highlighter.codeToThemedTokens(input, language as TLang);
       // fs.appendFileSync("debug.json", JSON.stringify(lines, null, 2));
       fs.writeFileSync(outputPath, renderToLaTeX(lines));

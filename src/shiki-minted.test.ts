@@ -5,7 +5,7 @@ import path from "path";
 
 describe("set theme", () => {
   expect(setTheme("default")).toBe("");
-  expect(fs.readFileSync("shiki-theme.pyg", "utf-8")).toBe("default");
+  expect(fs.readFileSync(themePath, "utf-8")).toBe("default");
 });
 
 describe("produce LaTeX", () => {
@@ -49,5 +49,7 @@ function produceLaTeX(language: string): string {
 }
 
 afterEach(() => {
-  if (fs.existsSync("shiki-theme.pyg")) fs.unlinkSync("shiki-theme.pyg");
+  if (fs.existsSync(themePath)) fs.unlinkSync(themePath);
 });
+
+const themePath = "shiki-theme.pyg";
