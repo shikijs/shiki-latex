@@ -3,6 +3,8 @@ import fs from "fs";
 import os from "os";
 import path from "path";
 
+const themePath = "shiki-theme.pyg";
+
 describe("set theme", () => {
   expect(setTheme("default")).toBe("");
   expect(fs.readFileSync(themePath, "utf-8")).toBe("default");
@@ -51,5 +53,3 @@ function produceLaTeX(language: string): string {
 afterEach(() => {
   if (fs.existsSync(themePath)) fs.unlinkSync(themePath);
 });
-
-const themePath = "shiki-theme.pyg";
