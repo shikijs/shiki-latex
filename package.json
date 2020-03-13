@@ -14,11 +14,13 @@
     "test": "tsc && jest && prettier --check 'src/**'"
   },
   "dependencies": {
-    "shiki": "^0.1.6"
+    "shiki": "^0.1.6",
+    "yargs": "^15.3.0"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.0",
+    "@types/yargs": "^15.0.4",
     "jest": "^25.1.0",
     "prettier": "^1.19.1",
     "typescript": "^3.8.3"

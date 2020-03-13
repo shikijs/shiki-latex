@@ -3,16 +3,21 @@ import fs from "fs";
 import os from "os";
 import path from "path";
 
-const themePath = "shiki-theme.pyg";
+const themePath = "shiki-minted-theme.pyg";
 
 describe("set theme", () => {
-  expect(setTheme("default")).toBe("");
+  expect(exec(() => `-S default -f latex -P commandprefix=PYG`)).toBe("");
   expect(fs.readFileSync(themePath, "utf-8")).toBe("default");
 });
 
 describe("produce LaTeX", () => {
   test("without theme", () => {
-    expect(produceLaTeX("ts")).toMatchInlineSnapshot(`
+    expect(
+      exec(
+        (inputPath, outputPath) =>
+          `-l ts -f latex -P commandprefix=PYG -F tokenmerge -o ${outputPath} ${inputPath}`
+      )
+    ).toMatchInlineSnapshot(`
       "\\\\begin{Verbatim}[commandchars=\\\\\\\\\\\\{\\\\}]
       \\\\textcolor[HTML]{0000FF}{const}\\\\textcolor[HTML]{000000}{ }\\\\textcolor[HTML]{001080}{name}\\\\textcolor[HTML]{000000}{ = }\\\\textcolor[HTML]{A31515}{\\"Leandro Facchinettti\\"}\\\\textcolor[HTML]{000000}{;}
       \\\\end{Verbatim}
@@ -21,8 +26,27 @@ describe("produce LaTeX", () => {
   });
 
   test("with theme", () => {
-    setTheme("nord");
-    expect(produceLaTeX("ts")).toMatchInlineSnapshot(`
+    exec(() => `-S nord -f latex -P commandprefix=PYG`);
+    expect(
+      exec(
+        (inputPath, outputPath) =>
+          `-l ts -f latex -P commandprefix=PYG -F tokenmerge -o ${outputPath} ${inputPath}`
+      )
+    ).toMatchInlineSnapshot(`
+      "\\\\begin{Verbatim}[commandchars=\\\\\\\\\\\\{\\\\}]
+      \\\\textcolor[HTML]{81A1C1}{const}\\\\textcolor[HTML]{D8DEE9FF}{ }\\\\textcolor[HTML]{D8DEE9}{name}\\\\textcolor[HTML]{D8DEE9FF}{ }\\\\textcolor[HTML]{81A1C1}{=}\\\\textcolor[HTML]{D8DEE9FF}{ }\\\\textcolor[HTML]{ECEFF4}{\\"}\\\\textcolor[HTML]{A3BE8C}{Leandro Facchinettti}\\\\textcolor[HTML]{ECEFF4}{\\"}\\\\textcolor[HTML]{81A1C1}{;}
+      \\\\end{Verbatim}
+      "
+    `);
+  });
+
+  test("TeX Live 2015 invocation (see https://github.com/leafac/shiki-latex/issues/1#issuecomment-598209904)", () => {
+    expect(
+      exec(
+        (inputPath, outputPath) =>
+          `-l ts -f latex -F tokenmerge -P style=default -P commandprefix=PYGdefault -P style=nord -P commandprefix=PYGnord -P stripnl=False -o ${outputPath} ${inputPath}`
+      )
+    ).toMatchInlineSnapshot(`
       "\\\\begin{Verbatim}[commandchars=\\\\\\\\\\\\{\\\\}]
       \\\\textcolor[HTML]{81A1C1}{const}\\\\textcolor[HTML]{D8DEE9FF}{ }\\\\textcolor[HTML]{D8DEE9}{name}\\\\textcolor[HTML]{D8DEE9FF}{ }\\\\textcolor[HTML]{81A1C1}{=}\\\\textcolor[HTML]{D8DEE9FF}{ }\\\\textcolor[HTML]{ECEFF4}{\\"}\\\\textcolor[HTML]{A3BE8C}{Leandro Facchinettti}\\\\textcolor[HTML]{ECEFF4}{\\"}\\\\textcolor[HTML]{81A1C1}{;}
       \\\\end{Verbatim}
@@ -31,23 +55,21 @@ describe("produce LaTeX", () => {
   });
 });
 
-function setTheme(theme: string): string {
-  return child_process
-    .execSync(`node lib/shiki-minted -S ${theme} -f latex -P commandprefix=PYG`)
-    .toString();
-}
-
-function produceLaTeX(language: string): string {
+function exec(
+  commandProducer: (inputPath: string, outputPath: string) => string
+): string {
   const temporaryDirectoryPath = fs.mkdtempSync(
     path.join(os.tmpdir(), "shiki-minted-")
   );
   const inputPath = path.join(temporaryDirectoryPath, "input");
   const outputPath = path.join(temporaryDirectoryPath, "output");
   fs.writeFileSync(inputPath, `const name = "Leandro Facchinettti";`);
-  child_process.execSync(
-    `node lib/shiki-minted -l ${language} -f latex -P commandprefix=PYG -F tokenmerge -o ${outputPath} ${inputPath}`
-  );
-  return fs.readFileSync(outputPath, "utf-8");
+  const commandOutput = child_process
+    .execSync(`node lib/shiki-minted ${commandProducer(inputPath, outputPath)}`)
+    .toString();
+  return fs.existsSync(outputPath)
+    ? fs.readFileSync(outputPath, "utf-8")
+    : commandOutput;
 }
 
 afterEach(() => {
