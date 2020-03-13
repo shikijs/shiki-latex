@@ -18,7 +18,7 @@ ${lines
           `\\textcolor[HTML]{${(color ?? defaultColor).slice(1)}}{${content
             .replace(/\\/g, "\\\\")
             .replace(/\{/g, "\\{")
-            .replace(/\}/, "\\}")}}`
+            .replace(/\}/g, "\\}")}}`
       )
       .join("")
   )
