@@ -27,7 +27,7 @@ import { renderToLaTeX } from ".";
     inputPath !== undefined
   ) {
     let theme = "default";
-    if (fs.existsSync(themePath)) theme = fs.readFileSync(themePath, "utf-8");
+    if (fs.existsSync(themePath)) theme = fs.readFileSync(themePath, "utf8");
     if (options !== undefined) {
       for (const option of options) {
         const [key, value] = (option as string).split("=");
@@ -38,7 +38,7 @@ import { renderToLaTeX } from ".";
     const highlighter = await getHighlighter({
       theme: theme as TTheme | IShikiTheme
     });
-    const input = fs.readFileSync(inputPath, "utf-8").trimRight();
+    const input = fs.readFileSync(inputPath, "utf8").trimRight();
     const lines = highlighter.codeToThemedTokens(input, language as TLang);
     // fs.appendFileSync("shiki-minted-debug.json", JSON.stringify(lines, undefined, 2));
     return fs.writeFileSync(outputPath as string, renderToLaTeX(lines));

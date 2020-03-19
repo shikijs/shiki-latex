@@ -7,7 +7,7 @@ const themePath = "shiki-minted-theme.pyg";
 
 describe("set theme", () => {
   expect(exec(() => `-S default -f latex -P commandprefix=PYG`)).toBe("");
-  expect(fs.readFileSync(themePath, "utf-8")).toBe("default");
+  expect(fs.readFileSync(themePath, "utf8")).toBe("default");
 });
 
 describe("produce LaTeX", () => {
@@ -68,7 +68,7 @@ function exec(
     .execSync(`node lib/shiki-minted ${commandProducer(inputPath, outputPath)}`)
     .toString();
   return fs.existsSync(outputPath)
-    ? fs.readFileSync(outputPath, "utf-8")
+    ? fs.readFileSync(outputPath, "utf8")
     : commandOutput;
 }
 
