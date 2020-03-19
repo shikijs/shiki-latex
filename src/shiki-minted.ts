@@ -7,7 +7,7 @@ import { TLang } from "shiki-languages";
 import { TTheme, IShikiTheme } from "shiki-themes";
 import { renderToLaTeX } from ".";
 
-(async function() {
+(async () => {
   const themePath = "shiki-minted-theme.pyg";
   const argv = yargs.array("P").argv;
   // fs.appendFileSync("shiki-minted-debug.json", JSON.stringify(argv, undefined, 2));

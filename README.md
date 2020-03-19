@@ -32,13 +32,14 @@ $ npm install shiki-latex
 import { getHighlighter } from "shiki";
 import { renderToLaTeX } from "shiki-latex";
 
-getHighlighter({ theme: "light_plus" }).then(highlighter => {
+(async () => {
+  const highlighter = await getHighlighter({ theme: "light_plus" });
   const lines = highlighter.codeToThemedTokens(
     `const name = "Leandro Facchinetti";`,
     "ts"
   );
   console.log(renderToLaTeX(lines));
-});
+})();
 ```
 
 The package comes with type definitions for [TypeScript](https://www.typescriptlang.org).
