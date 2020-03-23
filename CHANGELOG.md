@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.1.0] - 2020-03-22
+
 ### Added
 
 - <https://github.com/leafac/shiki-latex/issues/3#issuecomment-601790389>: Load custom themes.
@@ -34,7 +36,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LaTeX renderer for Shiki.
 - Executable compatible with the way minted calls Pygments.
 
-[unreleased]: https://github.com/leafac/shiki-latex/compare/1.0.2...HEAD
+[unreleased]: https://github.com/leafac/shiki-latex/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/leafac/shiki-latex/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/leafac/shiki-latex/compare/1.0.0...1.0.2
 [1.0.1]: https://github.com/leafac/shiki-latex/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/leafac/shiki-latex/releases/tag/1.0.0
