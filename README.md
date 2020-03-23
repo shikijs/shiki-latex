@@ -3,8 +3,8 @@
 <p><strong>A <a href="https://shiki.matsu.io">Shiki</a> renderer for <a href="https://www.latex-project.org">LaTeX</a>. Compatible with <a href="https://github.com/gpoore/minted">minted</a>, replacing <a href="https://pygments.org">Pygments</a>.</strong></p>
 <p>
 <a href="https://github.com/leafac/shiki-latex"><img alt="Source" src="https://img.shields.io/badge/Source---" /></a>
-<a href="https://www.npmjs.com/package/shiki-latex"><img src="https://badge.fury.io/js/shiki-latex.svg" alt="npm version" /></a>
-<a href="https://github.com/leafac/shiki-latex/actions"><img alt=".github/workflows/main.yml" src="https://github.com/leafac/shiki-latex/workflows/.github/workflows/main.yml/badge.svg" /></a>
+<a href="https://www.npmjs.com/package/shiki-latex"><img alt="Package" src="https://badge.fury.io/js/shiki-latex.svg"/></a>
+<a href="https://github.com/leafac/shiki-latex/actions"><img alt="Continuous Integration" src="https://github.com/leafac/shiki-latex/workflows/.github/workflows/main.yml/badge.svg" /></a>
 </p>
 </div>
 
