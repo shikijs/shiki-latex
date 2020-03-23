@@ -1,4 +1,5 @@
 import { IThemedToken } from "shiki/dist/themedTokenizer";
+import Color from "color";
 
 export interface LaTeXRendererOptions {
   defaultColor?: string;
@@ -15,7 +16,9 @@ ${lines
     line
       .map(
         ({ content, color }) =>
-          `\\textcolor[HTML]{${(color ?? defaultColor).slice(1)}}{${content
+          `\\textcolor[HTML]{${Color(color ?? defaultColor)
+            .hex()
+            .slice(1)}}{${content
             .replace(/\\/g, "\\\\")
             .replace(/\{/g, "\\{")
             .replace(/\}/g, "\\}")}}`

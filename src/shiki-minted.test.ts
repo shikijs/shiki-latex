@@ -34,7 +34,7 @@ describe("produce LaTeX", () => {
       )
     ).toMatchInlineSnapshot(`
       "\\\\begin{Verbatim}[commandchars=\\\\\\\\\\\\{\\\\}]
-      \\\\textcolor[HTML]{81A1C1}{const}\\\\textcolor[HTML]{D8DEE9FF}{ }\\\\textcolor[HTML]{D8DEE9}{name}\\\\textcolor[HTML]{D8DEE9FF}{ }\\\\textcolor[HTML]{81A1C1}{=}\\\\textcolor[HTML]{D8DEE9FF}{ }\\\\textcolor[HTML]{ECEFF4}{\\"}\\\\textcolor[HTML]{A3BE8C}{Leandro Facchinettti}\\\\textcolor[HTML]{ECEFF4}{\\"}\\\\textcolor[HTML]{81A1C1}{;}
+      \\\\textcolor[HTML]{81A1C1}{const}\\\\textcolor[HTML]{D8DEE9}{ }\\\\textcolor[HTML]{D8DEE9}{name}\\\\textcolor[HTML]{D8DEE9}{ }\\\\textcolor[HTML]{81A1C1}{=}\\\\textcolor[HTML]{D8DEE9}{ }\\\\textcolor[HTML]{ECEFF4}{\\"}\\\\textcolor[HTML]{A3BE8C}{Leandro Facchinettti}\\\\textcolor[HTML]{ECEFF4}{\\"}\\\\textcolor[HTML]{81A1C1}{;}
       \\\\end{Verbatim}
       "
     `);
@@ -47,11 +47,11 @@ describe("produce LaTeX", () => {
           `-l ts -f latex -F tokenmerge -P style=default -P commandprefix=PYGdefault -P style=nord -P commandprefix=PYGnord -P stripnl=False -o ${outputPath} ${inputPath}`
       )
     ).toMatchInlineSnapshot(`
-      "\\\\begin{Verbatim}[commandchars=\\\\\\\\\\\\{\\\\}]
-      \\\\textcolor[HTML]{81A1C1}{const}\\\\textcolor[HTML]{D8DEE9FF}{ }\\\\textcolor[HTML]{D8DEE9}{name}\\\\textcolor[HTML]{D8DEE9FF}{ }\\\\textcolor[HTML]{81A1C1}{=}\\\\textcolor[HTML]{D8DEE9FF}{ }\\\\textcolor[HTML]{ECEFF4}{\\"}\\\\textcolor[HTML]{A3BE8C}{Leandro Facchinettti}\\\\textcolor[HTML]{ECEFF4}{\\"}\\\\textcolor[HTML]{81A1C1}{;}
-      \\\\end{Verbatim}
-      "
-    `);
+"\\\\begin{Verbatim}[commandchars=\\\\\\\\\\\\{\\\\}]
+\\\\textcolor[HTML]{81A1C1}{const}\\\\textcolor[HTML]{D8DEE9}{ }\\\\textcolor[HTML]{D8DEE9}{name}\\\\textcolor[HTML]{D8DEE9}{ }\\\\textcolor[HTML]{81A1C1}{=}\\\\textcolor[HTML]{D8DEE9}{ }\\\\textcolor[HTML]{ECEFF4}{\\"}\\\\textcolor[HTML]{A3BE8C}{Leandro Facchinettti}\\\\textcolor[HTML]{ECEFF4}{\\"}\\\\textcolor[HTML]{81A1C1}{;}
+\\\\end{Verbatim}
+"
+`);
   });
 });
 

@@ -14,10 +14,12 @@
     "test": "tsc && jest && prettier --check 'src/**'"
   },
   "dependencies": {
+    "color": "^3.1.2",
     "shiki": "^0.1.6",
     "yargs": "^15.3.0"
   },
   "devDependencies": {
+    "@types/color": "^3.0.1",
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.0",
     "@types/yargs": "^15.0.4",

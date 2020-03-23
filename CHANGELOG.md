@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Debugging with the `SHIKI_LATEX_DEBUG` environment variable. The debug log is written to `shiki-minted-debug.json`.
 
+### Fixed
+
+- <https://github.com/leafac/shiki-latex/issues/3>: Normalize colors, for example, `#D8DEE9FF` turns into `#D8DEE9`, and `#FFF` turns into `#FFFFFF`. This is necessary because the `xcolor` LaTeX package expects colors in this format.
+
 ## [1.0.2] - 2020-03-13
 
 ### Fixed
