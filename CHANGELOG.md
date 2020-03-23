@@ -6,9 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Debugging with the `SHIKI_LATEX_DEBUG` environment variable. The debug log is written to `shiki-minted-debug.json`.
+
 ## [1.0.2] - 2020-03-13
 
-## Fixed
+### Fixed
 
 - <https://github.com/leafac/shiki-latex/issues/2>: Escaping `}`.
 

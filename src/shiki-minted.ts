@@ -10,8 +10,8 @@ import { renderToLaTeX } from ".";
 (async () => {
   const themePath = "shiki-minted-theme.pyg";
   const argv = yargs.array("P").argv;
-  // fs.appendFileSync("shiki-minted-debug.json", JSON.stringify(argv, undefined, 2));
-  // fs.appendFileSync("shiki-minted-debug.json", JSON.stringify(process.argv, undefined, 2));
+  debug(argv);
+  debug(process.argv);
   const {
     S: themeToStore,
     l: language,
@@ -40,7 +40,7 @@ import { renderToLaTeX } from ".";
     });
     const input = fs.readFileSync(inputPath, "utf8").trimRight();
     const lines = highlighter.codeToThemedTokens(input, language as TLang);
-    // fs.appendFileSync("shiki-minted-debug.json", JSON.stringify(lines, undefined, 2));
+    debug(lines);
     return fs.writeFileSync(outputPath as string, renderToLaTeX(lines));
   }
   console.error(`Unrecognized invocation:`);
@@ -48,3 +48,11 @@ import { renderToLaTeX } from ".";
   console.error(JSON.stringify(process.argv, undefined, 2));
   process.exit(1);
 })();
+
+function debug(value: any): void {
+  if (process.env.SHIKI_LATEX_DEBUG === undefined) return;
+  fs.appendFileSync(
+    "shiki-minted-debug.json",
+    JSON.stringify(value, undefined, 2) + "\n"
+  );
+}
