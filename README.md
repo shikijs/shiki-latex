@@ -1,8 +1,12 @@
-# Shiki LaTeX
-
-**A [Shiki](https://shiki.matsu.io) renderer for [LaTeX](https://www.latex-project.org). Compatible with [minted](https://github.com/gpoore/minted), replacing [Pygments](https://pygments.org).**
-
-[**Source**](https://github.com/leafac/shiki-latex) • [**Package**](https://www.npmjs.com/package/shiki-latex) • ![.github/workflows/main.yml](https://github.com/leafac/shiki-latex/workflows/.github/workflows/main.yml/badge.svg)
+<div align="center">
+<h1>Shiki LaTeX</h1>
+<p><strong>A <a href="https://shiki.matsu.io">Shiki</a> renderer for <a href="https://www.latex-project.org">LaTeX</a>. Compatible with <a href="https://github.com/gpoore/minted">minted</a>, replacing <a href="https://pygments.org">Pygments</a>.</strong></p>
+<p>
+<a href="https://github.com/leafac/shiki-latex"><img alt="Source" src="https://img.shields.io/badge/Source---" /></a>
+<a href="https://www.npmjs.com/package/shiki-latex"><img src="https://badge.fury.io/js/shiki-latex.svg" alt="npm version" /></a>
+<a href="https://github.com/leafac/shiki-latex/actions"><img alt=".github/workflows/main.yml" src="https://github.com/leafac/shiki-latex/workflows/.github/workflows/main.yml/badge.svg" /></a>
+</p>
+</div>
 
 # Comparison
 
@@ -22,9 +26,26 @@ $ npm install shiki-latex
 
 ```latex
 \usepackage{minted}
-\renewcommand{\MintedPygmentize}{./node_modules/.bin/shiki-minted}
-% Optional: Use Shiki themes with \usemintedstyle{nord}
+\renewcommand{\MintedPygmentize}{node_modules/.bin/shiki-minted}
 ```
+
+## Themes
+
+Choose a theme with the `\usemintedstyle{}` command.
+
+You may refer to a built-in [Shiki theme](https://github.com/octref/shiki/tree/master/packages/themes) by name, for example:
+
+```latex
+\usemintedstyle{nord}
+```
+
+You may refer to a theme file that you download and put next to your LaTeX source (don’t put it under a folder because minted doesn’t support it); for example, to use the [SynthWave '84](https://github.com/robb0wen/synthwave-vscode) theme, download [`synthwave-color-theme.json`](https://github.com/robb0wen/synthwave-vscode/blob/master/themes/synthwave-color-theme.json) and add the following to your LaTeX source:
+
+```latex
+\usemintedstyle{synthwave-color-theme.json}
+```
+
+**Note:** Some themes may not look as good on a PDF as they do on a webpage. It’s part of the game: LaTeX renders things differently from a browser. It’s a hit-and-miss situation.
 
 # Using Programmatically
 

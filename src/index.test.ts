@@ -1,4 +1,4 @@
-import { renderToLaTeX } from "./index";
+import { renderToLaTeX } from ".";
 import { getHighlighter } from "shiki";
 
 test("renderToLaTeX()", async () => {

@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+- <https://github.com/leafac/shiki-latex/issues/3#issuecomment-601790389>: Load custom themes.
 - Debugging with the `SHIKI_LATEX_DEBUG` environment variable. The debug log is written to `shiki-minted-debug.json`.
 
 ### Fixed

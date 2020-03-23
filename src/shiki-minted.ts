@@ -2,7 +2,7 @@
 
 import yargs from "yargs";
 import fs from "fs";
-import { getHighlighter } from "shiki";
+import { getHighlighter, loadTheme } from "shiki";
 import { TLang } from "shiki-languages";
 import { TTheme, IShikiTheme } from "shiki-themes";
 import { renderToLaTeX } from ".";
@@ -37,7 +37,12 @@ import { renderToLaTeX } from ".";
     if (theme === "default") theme = "light_plus";
     const highlighter = await getHighlighter({
       theme: theme as TTheme | IShikiTheme
-    });
+    })
+      .catch(() => getHighlighter({ theme: loadTheme(theme) }))
+      .catch(() => {
+        console.error(`Failed to load theme: ${theme}`);
+        process.exit(1);
+      });
     const input = fs.readFileSync(inputPath, "utf8").trimRight();
     const lines = highlighter.codeToThemedTokens(input, language as TLang);
     debug(lines);
