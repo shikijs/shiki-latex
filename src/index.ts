@@ -22,9 +22,11 @@ ${lines
             .split("")
             .map(
               character =>
-                (({ "\\": "\\textbackslash{}", "{": "\\{", "}": "\\}" } as any)[
-                  character
-                ] ?? character)
+                (({
+                  "\\": "\\textbackslash{}",
+                  "{": "\\{",
+                  "}": "\\}"
+                } as any)[character] ?? character)
             )
             .join("")}}`
       )
