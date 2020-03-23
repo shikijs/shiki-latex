@@ -22,7 +22,7 @@ Install [Node.js](https://nodejs.org/) and run:
 $ npm install shiki-latex
 ```
 
-# Using with Minted
+# Using with minted
 
 ```latex
 \usepackage{minted}
