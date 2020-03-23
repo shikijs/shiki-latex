@@ -18,13 +18,15 @@ ${lines
         ({ content, color }) =>
           `\\textcolor[HTML]{${Color(color ?? defaultColor)
             .hex()
-            .slice(1)}}{${content.replace(
-            /[\\{}]/g,
-            character =>
-              (({ "\\": "\\textbackslash{}", "{": "\\{", "}": "\\}" } as {
-                [character: string]: string;
-              })[character])
-          )}}`
+            .slice(1)}}{${content
+            .split("")
+            .map(
+              character =>
+                (({ "\\": "\\textbackslash{}", "{": "\\{", "}": "\\}" } as any)[
+                  character
+                ] ?? character)
+            )
+            .join("")}}`
       )
       .join("")
   )
