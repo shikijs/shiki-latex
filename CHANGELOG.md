@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.1.2] - 2020-03-23
+
+### Added
+
+- Better `README` formatting.
+
 ## [1.1.1] - 2020-03-23
 
 ### Fixed
@@ -42,7 +48,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LaTeX renderer for Shiki.
 - Executable compatible with the way minted calls Pygments.
 
-[unreleased]: https://github.com/leafac/shiki-latex/compare/1.1.1...HEAD
+[unreleased]: https://github.com/leafac/shiki-latex/compare/1.1.2...HEAD
+[1.1.2]: https://github.com/leafac/shiki-latex/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/leafac/shiki-latex/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/leafac/shiki-latex/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/leafac/shiki-latex/compare/1.0.0...1.0.2
