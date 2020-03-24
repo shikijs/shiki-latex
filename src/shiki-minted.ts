@@ -55,7 +55,7 @@ import { renderToLaTeX } from ".";
 })();
 
 function debug(value: any): void {
-  if (process.env.SHIKI_LATEX_DEBUG === undefined) return;
+  if (process.env.DEBUG === undefined) return;
   fs.appendFileSync(
     "shiki-minted-debug.json",
     JSON.stringify(value, undefined, 2) + "\n"
