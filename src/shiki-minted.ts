@@ -6,12 +6,16 @@ import { getHighlighter, loadTheme } from "shiki";
 import { TLang } from "shiki-languages";
 import { TTheme, IShikiTheme } from "shiki-themes";
 import { renderToLaTeX } from ".";
+import debugBuilder from "debug";
 
 (async () => {
+  const debug = debugBuilder("shiki-latex");
+  debug.log = (...args: any[]) =>
+    fs.appendFileSync("shiki-minted-debug.log", args + "\n");
   const themePath = "shiki-minted-theme.pyg";
   const argv = yargs.array("P").argv;
-  debug(argv);
   debug(process.argv);
+  debug(argv);
   const {
     S: themeToStore,
     l: language,
@@ -48,16 +52,6 @@ import { renderToLaTeX } from ".";
     debug(lines);
     return fs.writeFileSync(outputPath as string, renderToLaTeX(lines));
   }
-  console.error(`Unrecognized invocation:`);
-  console.error(JSON.stringify(argv, undefined, 2));
-  console.error(JSON.stringify(process.argv, undefined, 2));
+  console.error(`Unrecognized invocation\n%j\n%j`, process.argv, argv);
   process.exit(1);
 })();
-
-function debug(value: any): void {
-  if (process.env.DEBUG === undefined) return;
-  fs.appendFileSync(
-    "shiki-minted-debug.json",
-    JSON.stringify(value, undefined, 2) + "\n"
-  );
-}

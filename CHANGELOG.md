@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.1.4] - 2020-03-24
+
+### Changed
+
+- Use the [`debug` package](https://www.npmjs.com/package/debug) instead of homebrewed solution. Call with `DEBUG=shiki-latex` environment variable and logs are written to `shiki-minted-debug.log`.
+
 ## [1.1.3] - 2020-03-24
 
 ### Changed
@@ -54,7 +60,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LaTeX renderer for Shiki.
 - Executable compatible with the way minted calls Pygments.
 
-[unreleased]: https://github.com/leafac/shiki-latex/compare/1.1.3...HEAD
+[unreleased]: https://github.com/leafac/shiki-latex/compare/1.1.4...HEAD
+[1.1.3]: https://github.com/leafac/shiki-latex/compare/1.1.3...1.1.4
 [1.1.3]: https://github.com/leafac/shiki-latex/compare/1.1.2...1.1.3
 [1.1.2]: https://github.com/leafac/shiki-latex/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/leafac/shiki-latex/compare/1.1.0...1.1.1
