@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{minted}
+\renewcommand{\MintedPygmentize}{../lib/shiki-minted.js}
+\begin{document}
+\begin{minted}{ts}
+const debug = debugBuilder("shiki-latex");
+debug.log = (...args: any[]) =>
+  fs.appendFileSync("shiki-minted-debug.log", args + "\n");
+const themePath = "shiki-minted-theme.pyg";
+const argv = yargs.array("P").argv;
+debug(process.argv);
+debug(argv);
+const {
+  S: themeToStore,
+  l: language,
+  P: options,
+  o: outputPath,
+  _: [inputPath]
+} = argv;
+if (themeToStore !== undefined)
+  return fs.writeFileSync(themePath, themeToStore);
+\end{minted}
+\end{document}
