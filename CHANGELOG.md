@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.1.5] - 2020-03-25
+
+### Fixed
+
+- Remove colors from log even if `stderr` is a TTY.
+
 ## [1.1.4] - 2020-03-24
 
 ### Changed
@@ -60,8 +66,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LaTeX renderer for Shiki.
 - Executable compatible with the way minted calls Pygments.
 
-[unreleased]: https://github.com/leafac/shiki-latex/compare/1.1.4...HEAD
-[1.1.3]: https://github.com/leafac/shiki-latex/compare/1.1.3...1.1.4
+[unreleased]: https://github.com/leafac/shiki-latex/compare/1.1.5...HEAD
+[1.1.5]: https://github.com/leafac/shiki-latex/compare/1.1.4...1.1.5
+[1.1.4]: https://github.com/leafac/shiki-latex/compare/1.1.3...1.1.4
 [1.1.3]: https://github.com/leafac/shiki-latex/compare/1.1.2...1.1.3
 [1.1.2]: https://github.com/leafac/shiki-latex/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/leafac/shiki-latex/compare/1.1.0...1.1.1
