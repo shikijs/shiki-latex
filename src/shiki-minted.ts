@@ -6,12 +6,13 @@ import { getHighlighter, loadTheme } from "shiki";
 import { TLang } from "shiki-languages";
 import { TTheme, IShikiTheme } from "shiki-themes";
 import { renderToLaTeX } from ".";
+process.env.DEBUG_COLORS = "false";
 import createDebug from "debug";
 
 (async () => {
-  const debug = createDebug("shiki-latex");
-  debug.log = (...args: any[]) =>
+  createDebug.log = (...args: any[]) =>
     fs.appendFileSync("shiki-minted-debug.log", args + "\n");
+  const debug = createDebug("shiki-latex");
   const themePath = "shiki-minted-theme.pyg";
   const argv = yargs.array("P").argv;
   debug(process.argv);
