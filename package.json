@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "tsc && jest && prettier --check 'src/**'",
-    "build-example": "tsc && cd assets && rm -rf _minted-example example.aux example.fdb_latexmk example.fls example.log example.pdf example.synctex.gz shiki-minted-debug.log shiki-minted-theme.pyg && env DEBUG=shiki-latex latexmk -interaction=nonstopmode"
+    "build-example": "tsc && cd assets && rm -rf _minted-example example.aux example.fdb_latexmk example.fls example.log example.pdf example.synctex.gz shiki-minted-debug.log shiki-minted-theme.pyg && env DEBUG=shiki-latex latexmk"
   },
   "dependencies": {
     "color": "^3.1.2",
