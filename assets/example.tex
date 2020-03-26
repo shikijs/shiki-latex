@@ -1,10 +1,18 @@
 \documentclass{article}
 \usepackage{minted}
 \renewcommand{\MintedPygmentize}{../lib/shiki-minted.js}
-\usemintedstyle{synthwave-color-theme.json}
+% \usemintedstyle{nord}
+% \usemintedstyle{synthwave-color-theme.json}
 \begin{document}
-\begin{minted}{ts}
+Inline: ‘\mintinline{js}{const name = "Leandro Facchinettti";}’
+
+BEFORE
+\begin{minted}[stripnl = false]{ts}
+
+
+
 const debug = debugBuilder("shiki-latex");
+// \\\{{{}}}
 debug.log = (...args: any[]) =>
   fs.appendFileSync("shiki-minted-debug.log", args + "\n");
 const themePath = "shiki-minted-theme.pyg";
@@ -20,5 +28,9 @@ const {
 } = argv;
 if (themeToStore !== undefined)
   return fs.writeFileSync(themePath, themeToStore);
+
+
+
 \end{minted}
+AFTER
 \end{document}
