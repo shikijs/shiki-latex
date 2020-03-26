@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.1.6] - 2020-03-26
+
+### Added
+
+- A bunch more of debugging information.
+
+### Fixed
+
+- <https://github.com/leafac/shiki-latex/issues/6>: Preserve trailing newlines.
+
 ## [1.1.5] - 2020-03-25
 
 ### Fixed
@@ -66,7 +76,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LaTeX renderer for Shiki.
 - Executable compatible with the way minted calls Pygments.
 
-[unreleased]: https://github.com/leafac/shiki-latex/compare/1.1.5...HEAD
+[unreleased]: https://github.com/leafac/shiki-latex/compare/1.1.6...HEAD
+[1.1.6]: https://github.com/leafac/shiki-latex/compare/1.1.5...1.1.6
 [1.1.5]: https://github.com/leafac/shiki-latex/compare/1.1.4...1.1.5
 [1.1.4]: https://github.com/leafac/shiki-latex/compare/1.1.3...1.1.4
 [1.1.3]: https://github.com/leafac/shiki-latex/compare/1.1.2...1.1.3
