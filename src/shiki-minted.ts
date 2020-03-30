@@ -78,7 +78,9 @@ import createDebug from "debug";
       language as shikiLanguages.TLang
     );
     debug(`lines: ${JSON.stringify(lines, null, 2)}`);
-    const latex = shikiLaTeX.renderToLaTeX(lines);
+    const latex = shikiLaTeX.renderToLaTeX(lines, {
+      mathescape: options.mathescape === "True"
+    });
     debug(`latex: ‘${latex}’`);
     fs.writeFileSync(outputPath, latex);
     process.exit();

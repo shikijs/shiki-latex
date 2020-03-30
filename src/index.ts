@@ -3,6 +3,7 @@ import Color from "color";
 
 export interface LaTeXRendererOptions {
   defaultColor?: string;
+  mathescape?: boolean;
 }
 
 export function renderToLaTeX(
@@ -11,10 +12,15 @@ export function renderToLaTeX(
 ) {
   const defaultColor = options.defaultColor ?? "#000000";
   const fancyvrbOptions = ["commandchars=\\\\\\{\\}"];
+  if (options.mathescape)
+    fancyvrbOptions.push(
+      "codes={\\catcode`\\$=3\\catcode`\\^=7\\catcode`\\_=8}"
+    );
   const characterEscapes: { [character: string]: string } = {
     "\\": "\\textbackslash{}",
     "{": "\\{",
-    "}": "\\}"
+    "}": "\\}",
+    ...(options.mathescape ? { "^": "\\^", _: "\\_" } : {})
   };
   const renderedLines = lines
     .map(line =>
@@ -24,9 +30,16 @@ export function renderToLaTeX(
             .hex()
             .slice(1);
           const escapedContent = content
-            .split("")
-            .map(character => characterEscapes[character] ?? character)
-            .join("");
+            .split("$")
+            .map((contentFragment, contentFragmentIndex) => {
+              return options.mathescape && contentFragmentIndex % 2 === 1
+                ? contentFragment
+                : contentFragment
+                    .split("")
+                    .map(character => characterEscapes[character] ?? character)
+                    .join("");
+            })
+            .join("$");
           return `\\textcolor[HTML]{${normalizedColor}}{${escapedContent}}`;
         })
         .join("")
