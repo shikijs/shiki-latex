@@ -10,29 +10,30 @@ export function renderToLaTeX(
   options: LaTeXRendererOptions = {}
 ) {
   const defaultColor = options.defaultColor ?? "#000000";
-  return `\\begin{Verbatim}[commandchars=\\\\\\\{\\\}]
-${lines
-  .map(line =>
-    line
-      .map(
-        ({ content, color }) =>
-          `\\textcolor[HTML]{${Color(color ?? defaultColor)
+  const fancyvrbOptions = ["commandchars=\\\\\\{\\}"];
+  const characterEscapes: { [character: string]: string } = {
+    "\\": "\\textbackslash{}",
+    "{": "\\{",
+    "}": "\\}"
+  };
+  const renderedLines = lines
+    .map(line =>
+      line
+        .map(({ content, color }) => {
+          const normalizedColor = Color(color ?? defaultColor)
             .hex()
-            .slice(1)}}{${content
+            .slice(1);
+          const escapedContent = content
             .split("")
-            .map(
-              character =>
-                (({
-                  "\\": "\\textbackslash{}",
-                  "{": "\\{",
-                  "}": "\\}"
-                } as any)[character] ?? character)
-            )
-            .join("")}}`
-      )
-      .join("")
-  )
-  .join("\n")}
+            .map(character => characterEscapes[character] ?? character)
+            .join("");
+          return `\\textcolor[HTML]{${normalizedColor}}{${escapedContent}}`;
+        })
+        .join("")
+    )
+    .join("\n");
+  return `\\begin{Verbatim}[${fancyvrbOptions.join(",")}]
+${renderedLines}
 \\end{Verbatim}
 `;
 }
