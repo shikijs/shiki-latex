@@ -4,7 +4,7 @@ import * as shiki from "shiki";
 import * as shikiHighlighter from "shiki/dist/highlighter";
 import * as shikiLanguages from "shiki-languages";
 import * as shikiThemes from "shiki-themes";
-import * as shikiLatex from ".";
+import * as shikiLaTeX from ".";
 import * as yargs from "yargs";
 import * as fs from "fs";
 process.env.DEBUG_COLORS = "false";
@@ -79,7 +79,7 @@ import createDebug from "debug";
       language as shikiLanguages.TLang
     );
     debug(`lines: ${JSON.stringify(lines, null, 2)}`);
-    const latex = shikiLatex.renderToLaTeX(lines);
+    const latex = shikiLaTeX.renderToLaTeX(lines);
     debug(`latex: ‘${latex}’`);
     fs.writeFileSync(outputPath, latex);
     process.exit();
