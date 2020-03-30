@@ -62,3 +62,17 @@ import { renderToLaTeX } from "shiki-latex";
 ```
 
 The package comes with type definitions for [TypeScript](https://www.typescriptlang.org).
+
+## Options
+
+The `renderToLaTeX()` function accepts a second argument with options that control the rendering, for example:
+
+```ts
+renderToLaTeX(lines, { defaultColor: "#FF0000" });
+```
+
+The available options are the following:
+
+`defaultColor: string` (default `#000000`): The color to use when the theme doesn’t specify a color for a part of the highlighted program.
+
+`mathescape: boolean` (default `false`): Enable LaTeX math mode escape (`$___$`) in comments.

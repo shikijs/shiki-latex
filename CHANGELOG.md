@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.2.0] - 2020-03-30
+
+### Added
+
+- <https://github.com/leafac/shiki-latex/issues/8>: Add support for `mathescape` mode.
+
 ## [1.1.6] - 2020-03-26
 
 ### Added
@@ -76,7 +82,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LaTeX renderer for Shiki.
 - Executable compatible with the way minted calls Pygments.
 
-[unreleased]: https://github.com/leafac/shiki-latex/compare/1.1.6...HEAD
+[unreleased]: https://github.com/leafac/shiki-latex/compare/1.2.0...HEAD
+[1.2.0]: https://github.com/leafac/shiki-latex/compare/1.1.6...1.2.0
 [1.1.6]: https://github.com/leafac/shiki-latex/compare/1.1.5...1.1.6
 [1.1.5]: https://github.com/leafac/shiki-latex/compare/1.1.4...1.1.5
 [1.1.4]: https://github.com/leafac/shiki-latex/compare/1.1.3...1.1.4
