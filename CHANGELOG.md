@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - <https://github.com/leafac/shiki-latex/issues/8>: Add support for `mathescape` mode.
 
+### Fixed
+
+- <https://github.com/advisories/GHSA-7fhm-mqm4-2wp7>: Update minimist.
+
 ## [1.1.6] - 2020-03-26
 
 ### Added
