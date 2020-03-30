@@ -25,10 +25,14 @@ import createDebug from "debug";
   const {
     S: themeToStore,
     l: language,
-    P: options,
+    P: optionsRaw,
     o: outputPath,
     _: [inputPath]
   } = argv;
+  const options: { [key: string]: string } =
+    optionsRaw === undefined
+      ? {}
+      : Object.fromEntries(optionsRaw.map(option => String(option).split("=")));
   if (themeToStore !== undefined) {
     fs.writeFileSync(themePath, themeToStore);
     debug(`Stored theme ‘${themeToStore}’ at ‘${themePath}’`);
@@ -44,14 +48,9 @@ import createDebug from "debug";
       theme = fs.readFileSync(themePath, "utf8");
       debug(`Theme ‘${theme}’ selected from ‘${themePath}’`);
     } catch {}
-    if (options !== undefined) {
-      for (const option of options) {
-        const [key, value] = option.toString().split("=");
-        if (key === "style") {
-          theme = value;
-          debug(`Theme ‘${theme}’ selected from command-line option ‘${key}’`);
-        }
-      }
+    if (options.style !== undefined) {
+      theme = options.style;
+      debug(`Theme ‘${theme}’ selected from command-line option ‘style’`);
     }
     if (theme === "default") theme = "light_plus";
     debug(`Final theme selection: ‘${theme}’`);

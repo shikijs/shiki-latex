@@ -4,7 +4,7 @@
     "outDir": "lib",
     "module": "commonjs",
     "esModuleInterop": true,
-    "target": "ES2018",
+    "target": "ES2019",
     "strict": true,
     "sourceMap": true,
     "declaration": true,
