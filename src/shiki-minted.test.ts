@@ -106,5 +106,7 @@ function exec(
 }
 
 afterEach(() => {
-  if (fs.existsSync(themePath)) fs.unlinkSync(themePath);
+  try {
+    fs.unlinkSync(themePath);
+  } catch {}
 });
