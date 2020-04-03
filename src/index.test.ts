@@ -7,7 +7,7 @@ describe("renderToLaTeX()", () => {
       renderToLaTeX(
         (
           await getHighlighter({
-            theme: "light_plus"
+            theme: "light_plus",
           })
         ).codeToThemedTokens(`const name = "Leandro Facchinettti";`, "ts")
       )
@@ -24,7 +24,7 @@ describe("renderToLaTeX()", () => {
       renderToLaTeX(
         (
           await getHighlighter({
-            theme: "light_plus"
+            theme: "light_plus",
           })
         ).codeToThemedTokens(`const strangeCharacters = "\\{}%$#^_";`, "ts")
       )
@@ -41,7 +41,7 @@ describe("renderToLaTeX()", () => {
       renderToLaTeX(
         (
           await getHighlighter({
-            theme: "light_plus"
+            theme: "light_plus",
           })
         ).codeToThemedTokens(
           `// This is $x^2$. A raw backslash: \\. And so on$\\cdots$

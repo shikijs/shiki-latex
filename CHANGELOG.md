@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.3.0] - 2020-04-03
+
+### Added
+
+- <https://github.com/leafac/shiki-latex/issues/9>: Add support for `plaintext`, `txt`, and `text` languages.
+
 ## [1.2.0] - 2020-03-30
 
 ### Added
@@ -86,7 +92,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LaTeX renderer for Shiki.
 - Executable compatible with the way minted calls Pygments.
 
-[unreleased]: https://github.com/leafac/shiki-latex/compare/1.2.0...HEAD
+[unreleased]: https://github.com/leafac/shiki-latex/compare/1.3.0...HEAD
+[1.3.0]: https://github.com/leafac/shiki-latex/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/leafac/shiki-latex/compare/1.1.6...1.2.0
 [1.1.6]: https://github.com/leafac/shiki-latex/compare/1.1.5...1.1.6
 [1.1.5]: https://github.com/leafac/shiki-latex/compare/1.1.4...1.1.5

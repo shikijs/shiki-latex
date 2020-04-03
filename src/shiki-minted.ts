@@ -15,11 +15,7 @@ import createDebug from "debug";
     fs.appendFileSync("shiki-minted-debug.log", message + "\n");
   const debug = createDebug("shiki-latex");
   const themePath = "shiki-minted-theme.pyg";
-  const argv = yargs
-    .string("S")
-    .string("l")
-    .array("P")
-    .string("o").argv;
+  const argv = yargs.string("S").string("l").array("P").string("o").argv;
   debug(`process.argv: ${JSON.stringify(process.argv, null, 2)}`);
   debug(`argv: ${JSON.stringify(argv, null, 2)}`);
   const {
@@ -27,12 +23,14 @@ import createDebug from "debug";
     l: language,
     P: optionsRaw,
     o: outputPath,
-    _: [inputPath]
+    _: [inputPath],
   } = argv;
   const options: { [key: string]: string } =
     optionsRaw === undefined
       ? {}
-      : Object.fromEntries(optionsRaw.map(option => String(option).split("=")));
+      : Object.fromEntries(
+          optionsRaw.map((option) => String(option).split("="))
+        );
   if (themeToStore !== undefined) {
     fs.writeFileSync(themePath, themeToStore);
     debug(`Stored theme ‘${themeToStore}’ at ‘${themePath}’`);
@@ -57,13 +55,13 @@ import createDebug from "debug";
     let highlighter: shikiHighlighter.Highlighter;
     try {
       highlighter = await shiki.getHighlighter({
-        theme: theme as shikiThemes.TTheme | shikiThemes.IShikiTheme
+        theme: theme as shikiThemes.TTheme | shikiThemes.IShikiTheme,
       });
       debug(`Loaded built-in theme: ‘${theme}’`);
     } catch {
       try {
         highlighter = await shiki.getHighlighter({
-          theme: shiki.loadTheme(theme)
+          theme: shiki.loadTheme(theme),
         });
         debug(`Loaded theme file: ‘${theme}’`);
       } catch {
@@ -73,13 +71,18 @@ import createDebug from "debug";
     }
     const input = fs.readFileSync(inputPath, "utf8");
     debug(`input: ‘${input}’`);
-    const lines = highlighter.codeToThemedTokens(
-      input.slice(0, input.length - 1),
-      language as shikiLanguages.TLang
-    );
+    const inputWithoutTrailingNewline = input.slice(0, input.length - 1);
+    const lines = ["plaintext", "txt", "text"].includes(language)
+      ? inputWithoutTrailingNewline
+          .split("\n")
+          .map((line) => [{ content: line }])
+      : highlighter.codeToThemedTokens(
+          inputWithoutTrailingNewline,
+          language as shikiLanguages.TLang
+        );
     debug(`lines: ${JSON.stringify(lines, null, 2)}`);
     const latex = shikiLaTeX.renderToLaTeX(lines, {
-      mathescape: options.mathescape === "True"
+      mathescape: options.mathescape === "True",
     });
     debug(`latex: ‘${latex}’`);
     fs.writeFileSync(outputPath, latex);

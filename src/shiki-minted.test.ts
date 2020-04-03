@@ -73,6 +73,20 @@ describe("produce LaTeX", () => {
     }).toThrowError(/Failed to load theme: ‘nonexistent’/);
   });
 
+  test("plaintext", () => {
+    expect(
+      exec(
+        (inputPath, outputPath) =>
+          `-l txt -f latex -P commandprefix=PYG -F tokenmerge -o ${outputPath} ${inputPath}`
+      )
+    ).toMatchInlineSnapshot(`
+      "\\\\begin{Verbatim}[commandchars=\\\\\\\\\\\\{\\\\}]
+      \\\\textcolor[HTML]{000000}{const name = \\"Leandro Facchinettti\\";}
+      \\\\end{Verbatim}
+      "
+    `);
+  });
+
   test("TeX Live 2015 invocation (see https://github.com/leafac/shiki-latex/issues/1#issuecomment-598209904)", () => {
     expect(
       exec(

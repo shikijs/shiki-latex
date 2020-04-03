@@ -20,10 +20,10 @@ export function renderToLaTeX(
     "\\": "\\textbackslash{}",
     "{": "\\{",
     "}": "\\}",
-    ...(options.mathescape ? { "^": "\\^", _: "\\_" } : {})
+    ...(options.mathescape ? { "^": "\\^", _: "\\_" } : {}),
   };
   const renderedLines = lines
-    .map(line =>
+    .map((line) =>
       line
         .map(({ content, color }) => {
           const normalizedColor = Color(color ?? defaultColor)
@@ -36,7 +36,9 @@ export function renderToLaTeX(
                 ? contentFragment
                 : contentFragment
                     .split("")
-                    .map(character => characterEscapes[character] ?? character)
+                    .map(
+                      (character) => characterEscapes[character] ?? character
+                    )
                     .join("");
             })
             .join("$");
