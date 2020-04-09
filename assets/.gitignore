@@ -4,5 +4,6 @@ _minted-*
 *.fls
 *.log
 *.pdf
+*.synctex(busy)
 *.synctex.gz
 *.pyg
