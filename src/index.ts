@@ -25,7 +25,7 @@ export function renderToLaTeX(
   const renderedLines = lines
     .map((line) =>
       line
-        .map(({ content, color }) => {
+        .map(({ content, color, preserveFontStyle, fontStyle }) => {
           const normalizedColor = Color(color ?? defaultColor)
             .hex()
             .slice(1);
@@ -42,7 +42,15 @@ export function renderToLaTeX(
                     .join("");
             })
             .join("$");
-          return `\\textcolor[HTML]{${normalizedColor}}{${escapedContent}}`;
+          var fontStyleStr:string = "";
+          var fontStyleStr2:string = "";
+          if (preserveFontStyle && fontStyle == `font-weight: bold`)
+              fontStyleStr2 +=  `\\bfseries`;
+          if (preserveFontStyle && fontStyle == `font-style: italic;`)
+              fontStyleStr2 +=  `\\itshape`;
+          if (preserveFontStyle && fontStyle == `text-decoration: underline`)
+              fontStyleStr = `\\underline`;
+          return `${fontStyleStr}{${fontStyleStr2}\\textcolor[HTML]{${normalizedColor}}{${escapedContent}}}`;
         })
         .join("")
     )
