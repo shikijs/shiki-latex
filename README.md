@@ -1,16 +1,16 @@
 <h1 align="center">Shiki LaTeX</h1>
 <h3 align="center">A <a href="https://shiki.matsu.io">Shiki</a> renderer for <a href="https://www.latex-project.org">LaTeX</a>. Compatible with <a href="https://github.com/gpoore/minted">minted</a>, replacing <a href="https://pygments.org">Pygments</a>.</h3>
 <p align="center">
-<a href="https://github.com/leafac/shiki-latex"><img alt="Source" src="https://img.shields.io/badge/Source---" /></a>
-<a href="https://www.npmjs.com/package/shiki-latex"><img alt="Package" src="https://badge.fury.io/js/shiki-latex.svg"/></a>
-<a href="https://github.com/leafac/shiki-latex/actions"><img alt="Continuous Integration" src="https://github.com/leafac/shiki-latex/workflows/.github/workflows/main.yml/badge.svg" /></a>
+<a href="https://github.com/leafac/shiki-latex"><img alt="Source" src="https://img.shields.io/badge/Source---"></a>
+<a href="https://www.npmjs.com/package/shiki-latex"><img alt="Package" src="https://badge.fury.io/js/shiki-latex.svg"></a>
+<a href="https://github.com/leafac/shiki-latex/actions"><img alt="Continuous Integration" src="https://github.com/leafac/shiki-latex/workflows/.github/workflows/main.yml/badge.svg"></a>
 </p>
 
 # Comparison
 
-| [Shiki](https://shiki.matsu.io)                      | [Pygments](https://pygments.org)                           |
-| ---------------------------------------------------- | ---------------------------------------------------------- |
-| <img alt="Shiki" src="docs/shiki.png" width="702" /> | <img alt="Pygments" src="docs/pygments.png" width="685" /> |
+| [Shiki](https://shiki.matsu.io)                    | [Pygments](https://pygments.org)                         |
+| -------------------------------------------------- | -------------------------------------------------------- |
+| <img alt="Shiki" src="docs/shiki.png" width="702"> | <img alt="Pygments" src="docs/pygments.png" width="685"> |
 
 # Installation
 
