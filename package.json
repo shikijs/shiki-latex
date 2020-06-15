@@ -11,7 +11,7 @@
     "shiki-minted": "lib/shiki-minted.js"
   },
   "scripts": {
-    "test": "tsc && jest && prettier --check src",
+    "test": "prettier --check src && tsc && jest",
     "build:example": "tsc && cd assets && rm -rf _minted-example example.aux example.fdb_latexmk example.fls example.log example.pdf example.synctex.gz shiki-minted-debug.log shiki-minted-theme.pyg && env DEBUG=shiki-latex latexmk"
   },
   "dependencies": {
