@@ -1,13 +1,19 @@
 {
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "lib",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "ES2019",
-    "strict": true,
-    "sourceMap": true,
+    "rootDir": "./source/",
+    "outDir": "./distribution/",
+
+    "module": "ESNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ESNext",
+
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "sourceMap": true,
+
+    "strict": true
   }
 }

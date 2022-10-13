@@ -1,3 +1,16 @@
+<!--
+
+- [ ] Merge proposal
+    - [ ] https://github.com/shikijs/shiki/issues/115 
+    - [ ] https://github.com/rsclarke/rehype-shiki/issues/49
+- [ ] The original rehype-shiki could cache the highlighter
+    - [ ] https://spectrum.chat/unified/remark/how-to-initialize-async-function-before-running-the-transformer~e986e9fe-6b33-45d6-8d79-365cf7093aa5
+- [ ] Lowercase the language? For example, should ```JAVASCRIPT work? What do other syntax highlighters do?
+- [ ] Add to awesome-rehype
+- [ ] Improve treatment of mathescape: only process if there’s an odd number of segments after splitting on $ (which means there’s an even number of $s, which means they’re balanced)
+- [ ] A playground to try Shiki online
+
+-->
 <h1 align="center">Shiki LaTeX</h1>
 <h3 align="center">A <a href="https://shiki.matsu.io">Shiki</a> renderer for <a href="https://www.latex-project.org">LaTeX</a>. Compatible with <a href="https://github.com/gpoore/minted">minted</a>, replacing <a href="https://pygments.org">Pygments</a>.</h3>
 <p align="center">
